@@ -1,0 +1,11 @@
+/bin/
+/cmd/phi/phi
+/dist/
+*.exe
+*.test
+*.out
+coverage.txt
+.idea/
+.vscode/
+.DS_Store
+*.log
