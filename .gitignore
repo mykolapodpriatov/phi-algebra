@@ -1,5 +1,5 @@
-/phi
 /bin/
+/cmd/phi/phi
 /dist/
 *.exe
 *.test
