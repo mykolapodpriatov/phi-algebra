@@ -57,6 +57,11 @@ func NewPolygon(verts []Point) (Polygon, error) {
 	if !p.IsConvex() {
 		return Polygon{}, fmt.Errorf("v1 accepts convex polygons only")
 	}
+	// Collinear points have no turn outside Eps, so IsConvex accepts them.
+	// A ring with no area is not a polygon.
+	if p.Area() <= Eps {
+		return Polygon{}, fmt.Errorf("degenerate polygon")
+	}
 	return p, nil
 }
 

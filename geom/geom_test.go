@@ -25,6 +25,13 @@ func TestAreaAndConvex(t *testing.T) {
 	}
 }
 
+func TestRejectsCollinear(t *testing.T) {
+	_, err := NewPolygon([]Point{{0, 0}, {1, 0}, {2, 0}})
+	if err == nil {
+		t.Fatal("expected degenerate rejection")
+	}
+}
+
 func TestRejectsConcave(t *testing.T) {
 	_, err := NewPolygon([]Point{
 		{0, 0}, {3, 0}, {1, 1}, {3, 2}, {0, 2},
